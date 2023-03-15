@@ -1,0 +1,1 @@
+setupFilesAfterEnv: ['src/app/setupTesting.ts']
