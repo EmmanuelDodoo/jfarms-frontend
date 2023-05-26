@@ -5,6 +5,14 @@ const nextConfig = {
     domains: ['tailwindui.com',],
     loader: 'default',
     dangerouslyAllowSVG: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "**",
+      }
+    ]
   },
 }
 

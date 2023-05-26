@@ -5,6 +5,15 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}',],
   theme: {
     extend: {},
+    screens: {
+      "xs": { "min": "200px" },
+      "sm": { "min": "375px" },
+      "md": { "min": "425px" },
+      "lg": { "min": "768px" },
+      "xl": { "min": "1000px" },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }
