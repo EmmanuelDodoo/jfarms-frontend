@@ -4,6 +4,8 @@ import "./index.module.css";
 import App from "../app/App";
 import reportWebVitals from "./reportWebVitals";
 import ProfileHeader from "@/Components/Profile/Header";
+import AltHeader from "@/Components/Profile/AltHeader";
+import Details from "@/Components/Profile/Details";
 
 // const rt = document.getElementById("root");
 
@@ -17,8 +19,10 @@ function myApp() {
 
 function altApp() {
   return (
-    <div className="xs:flex xs:flex-col xs:items-center lg:flex-row lg:items-start lg:mx-2">
-      <ProfileHeader />
+    <div className="my-4 gap-4 flex flex-col xs:items-center lg:items-start lg:mx-2">
+      {/* <ProfileHeader /> */}
+      <AltHeader />
+      {/* <Details /> */}
     </div>
   );
 }

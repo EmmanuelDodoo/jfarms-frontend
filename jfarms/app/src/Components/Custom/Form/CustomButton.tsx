@@ -133,8 +133,9 @@ export default function CustomButton({
   const _variant = variant === undefined ? "solid" : variant;
   const _colorScheme = colorScheme == undefined ? "primary" : colorScheme;
 
-  const baseClassList = "inline-flex justify-center px-2 py-1 mx-1 my-1";
+  const baseClassList = "inline-flex justify-center px-2 py-1 m-1";
   const classList =
+    rest.className +
     baseClassList +
     handleSize(_size) +
     handleRounded(_rounded) +

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HorDivider from "../Custom/Util/Divider";
 import CircleAvatar from "./CircleAvatar";
 
