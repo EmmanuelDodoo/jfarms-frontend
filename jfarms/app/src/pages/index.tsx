@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import ProfileHeader from "@/Components/Profile/Header";
 import AltHeader from "@/Components/Profile/AltHeader";
 import Details from "@/Components/Profile/Details";
+import AltDetails from "@/Components/Profile/AltDetails";
 
 // const rt = document.getElementById("root");
 
@@ -23,6 +24,7 @@ function altApp() {
       {/* <ProfileHeader /> */}
       <AltHeader />
       {/* <Details /> */}
+      <AltDetails />
     </div>
   );
 }

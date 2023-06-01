@@ -135,11 +135,11 @@ export default function CustomButton({
 
   const baseClassList = "inline-flex justify-center px-2 py-1 m-1";
   const classList =
-    rest.className +
     baseClassList +
     handleSize(_size) +
     handleRounded(_rounded) +
-    handleVariant(_variant, _colorScheme);
+    handleVariant(_variant, _colorScheme) +
+    rest.className;
 
   return (
     <button
