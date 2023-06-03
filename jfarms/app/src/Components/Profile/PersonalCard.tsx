@@ -1,14 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import CustomButton from "../Custom/Form/CustomButton";
 
-/** Copies the content of element specified by `id` on to the user's
- * clipboard
- */
-function copyElementContents(id: string, buttonId: string) {
-  const lmt = document.getElementById(id);
-  const btn = document.getElementById(buttonId);
-}
-
 export default function PersonalCard() {
   const divClassNames = " inline-flex gap-2 items-center";
   const subClassNames = " font-semibold text-slate-500 ";
@@ -26,6 +18,9 @@ export default function PersonalCard() {
   const [emailCopyFlag, setEmailCopyFlag] = useState(false);
   const [numberCopyFlag, setNumberCopyFlag] = useState(false);
 
+  /** Copies the content of element specified by `id` on to the user's
+   * clipboard
+   */
   function copyElementContents(
     elementId: string,
     buttonSetter: Dispatch<SetStateAction<boolean>>
@@ -64,6 +59,7 @@ export default function PersonalCard() {
           variant="soft"
           onClick={() => copyElementContents("email", setEmailCopyFlag)}
           id="emailCopyButton"
+          aria-label="Copy email"
         >
           {emailCopyFlag ? <div className="text-black">Copied!</div> : copySVG}
         </CustomButton>
@@ -81,6 +77,7 @@ export default function PersonalCard() {
           variant="soft"
           onClick={() => copyElementContents("phone-number", setNumberCopyFlag)}
           id="numberCopyButton"
+          aria-label="Copy phone number"
         >
           {numberCopyFlag ? <div className="text-black">Copied!</div> : copySVG}
         </CustomButton>

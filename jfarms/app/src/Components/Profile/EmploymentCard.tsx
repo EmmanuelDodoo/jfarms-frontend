@@ -112,6 +112,7 @@ export default function EmploymentCard(props: Props) {
             size="sm"
             variant="soft"
             onClick={toggleID}
+            aria-label={visibleID ? "hide" : "unhide"}
           >
             {visibleID ? visibilityIDOff : visibilityIDOn}
           </CustomButton>
@@ -133,6 +134,7 @@ export default function EmploymentCard(props: Props) {
               size="sm"
               variant="ghost"
               onClick={toggleWork}
+              aria-label={visibleWork ? "collapse" : "expand"}
             >
               {visibleWork ? expandLess : expandMore}
             </CustomButton>
@@ -148,6 +150,7 @@ export default function EmploymentCard(props: Props) {
               size="sm"
               variant="ghost"
               onClick={toggleProjects}
+              aria-label={visibleProjects ? "collapse" : "expand"}
             >
               {visibleProjects ? expandLess : expandMore}
             </CustomButton>
@@ -163,6 +166,7 @@ export default function EmploymentCard(props: Props) {
               size="sm"
               variant="ghost"
               onClick={toggleSkills}
+              aria-label={visibleSkills ? "collapse" : "expand"}
             >
               {visibleSkills ? expandLess : expandMore}
             </CustomButton>
