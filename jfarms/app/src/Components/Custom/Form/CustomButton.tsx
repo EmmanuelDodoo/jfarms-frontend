@@ -113,7 +113,8 @@ function handleVariant(variant: string, colorScheme: string) {
   }
 }
 
-/** Create a custom button component. Optional fields for size, rounded, variant and colorScheme
+/** Create a custom button component. Optional fields for size, rounded, variant and colorScheme.
+ * If an aria-label is provided, a tooltip is created containing the label
  *
  * @param size takes arguments `xs`, `sm`, `md`, `lg`, `xl`. Defualt is `md`.
  * @param rounded takes a boolean. Default is `false`.
@@ -133,7 +134,26 @@ export default function CustomButton({
   const _variant = variant === undefined ? "solid" : variant;
   const _colorScheme = colorScheme == undefined ? "primary" : colorScheme;
 
-  const baseClassList = "inline-flex justify-center px-2 py-1 m-1";
+  //Tool tip stuff
+  const tooltipContent =
+    rest["aria-label"] === undefined ? "" : rest["aria-label"];
+  const tooltip = (
+    <div
+      aria-hidden
+      role="tooltip"
+      className="absolute bottom-10 left-0 inline-block z-10 
+    px-3 py-2 text-xs font-medium text-black dark:text-white
+    rounded-lg shadow-sm bg-slate-100 dark:bg-gray-700 
+    box-border min-w-max opacity-0 invisible transition-all duration-300 translate-y-1/2
+    peer-hover:opacity-100 peer-hover:translate-y-0 peer-hover:visible"
+    >
+      {tooltipContent}
+    </div>
+  );
+
+  //Accumulating the class list for the button itself
+  const baseClassList =
+    "inline-flex justify-center px-2 py-1 m-1 relative peer";
   const classList =
     baseClassList +
     handleSize(_size) +
@@ -142,9 +162,12 @@ export default function CustomButton({
     rest.className;
 
   return (
-    <button
-      {...rest}
-      className={classList}
-    ></button>
+    <div className="relative px-0">
+      <button
+        {...rest}
+        className={classList}
+      ></button>
+      {rest["aria-label"] === undefined ? <></> : tooltip}
+    </div>
   );
 }
