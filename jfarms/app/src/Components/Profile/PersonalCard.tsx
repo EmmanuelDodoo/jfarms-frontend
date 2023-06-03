@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import CustomButton from "../Custom/Form/CustomButton";
 
 export default function PersonalCard() {
-  const divClassNames = " inline-flex gap-2 items-center";
+  const divClassNames = " flex gap-2 items-center";
   const subClassNames = " font-semibold text-slate-500 ";
   const detailClassNames = " font-semibold text-slate-800 ";
   const copySVG = (
@@ -36,7 +36,7 @@ export default function PersonalCard() {
   }
 
   return (
-    <div className="py-4 px-3 gap-4 rounded-md shadow-md h-fit flex flex-col bg-white">
+    <div className="py-4 px-3 gap-4 rounded-md shadow-md h-fit flex flex-col bg-white overflow-hidden">
       <h3 className="text-slate-700 font-bold">Personal Details</h3>
       <div className={divClassNames}>
         <span className={subClassNames}>Full name: </span>

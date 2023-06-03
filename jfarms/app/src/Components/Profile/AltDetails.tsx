@@ -35,7 +35,7 @@ function jobCard() {
 
 export default function AltDetails() {
   return (
-    <div className="bg-sky-100 my-2 p-2 w-80 xs:w-11/12 flex lg:flex-row xs:flex-col justify-between gap-3">
+    <div className="bg-sky-100 my-2 p-2 w-80 xs:w-11/12 flex xl:flex-row xs:flex-col justify-between gap-3">
       {jobCard()}
       <EmploymentCard />
       <PersonalCard />
