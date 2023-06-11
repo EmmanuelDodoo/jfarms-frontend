@@ -36,7 +36,7 @@ export default function PersonalCard() {
   }
 
   return (
-    <div className="py-4 px-3 gap-4 rounded-md shadow-md h-fit flex flex-col bg-white overflow-hidden">
+    <div className="py-4 px-3 gap-4 rounded-md shadow-md h-fit flex flex-col bg-white">
       <h3 className="text-slate-700 font-bold">Personal Details</h3>
       <div className={divClassNames}>
         <span className={subClassNames}>Full name: </span>
