@@ -6,6 +6,7 @@ type CustomButtonProps = ButtonProps & {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   rounded?: boolean;
   variant?: "solid" | "ghost" | "outline" | "link" | "soft";
+  tooltipClass?: string;
   colorScheme?:
     | "primary"
     | "secondary"
@@ -45,12 +46,13 @@ function handleRounded(rounded: boolean) {
 }
 
 /** Create a custom button component. Optional fields for size, rounded, variant and colorScheme.
- * If an aria-label is provided, a tooltip is created containing the label
+ * If an aria-label is provided, a tooltip is created containing the label. Use `tooltipClass` to style tool tip directly.
  *
  * @param size takes arguments `xs`, `sm`, `md`, `lg`, `xl`. Defualt is `md`.
  * @param rounded takes a boolean. Default is `false`.
  * @param variant takes argument `solid`, `ghost`, `link`, `soft`, `outline`. Default is `solid`.
  * @param colorScheme takes `primary`, `secondary` and all default tailwind color values as an argument except `zinc` and `neutral`.
+ * @param tooltipClass classes for directly styling the tool tip
  *
  */
 export default function CustomButton({
@@ -58,6 +60,7 @@ export default function CustomButton({
   rounded,
   variant,
   colorScheme,
+  tooltipClass,
   ...rest
 }: CustomButtonProps) {
   const _size = size === undefined ? "md" : size;
@@ -66,21 +69,62 @@ export default function CustomButton({
   const _colorScheme = colorScheme == undefined ? "primary" : colorScheme;
 
   //Tool tip stuff
-  const tooltipContent =
-    rest["aria-label"] === undefined ? "" : rest["aria-label"];
-  const tooltip = (
-    <div
-      aria-hidden
-      role="tooltip"
-      className="absolute bottom-10 left-0 inline-block z-10 
-    px-3 py-2 text-xs font-medium text-black dark:text-white
-    rounded-lg shadow-sm bg-slate-100 dark:bg-gray-700 
-    box-border min-w-max opacity-0 invisible transition-all duration-300 translate-y-1/2
-    peer-hover:opacity-100 peer-hover:translate-y-0 peer-hover:visible"
-    >
-      {tooltipContent}
-    </div>
-  );
+  function createTooltip() {
+    const _tooltipColorVariants = {
+      primary:
+        " text-zinc-800 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-600 ",
+      secondary:
+        " text-neutral-800 dark:text-neutral-100 bg-neutral-200 dark:bg-neutral-400 ",
+      red: " text-red-800 dark:text-red-100 bg-red-100 dark:bg-red-500 ",
+      blue: " text-blue-800 dark:text-blue-100 bg-blue-100 dark:bg-blue-500 ",
+      green:
+        " text-green-800 dark:text-green-50 bg-green-100 dark:bg-green-500 ",
+      slate:
+        " text-slate-800 dark:text-slate-100 bg-slate-100 dark:bg-slate-500 ",
+      gray: " text-gray-800 dark:text-gray-100 bg-gray-100 dark:bg-gray-700 ",
+      stone:
+        " text-stone-800 dark:text-stone-100 bg-stone-200 dark:bg-stone-600 ",
+      orange:
+        " text-orange-800 dark:text-orange-100 bg-orange-100 dark:bg-orange-500 ",
+      amber:
+        " text-amber-800 dark:text-amber-100 bg-amber-100 dark:bg-amber-500 ",
+      yellow:
+        " text-yellow-800 dark:text-yellow-100 bg-yellow-100 dark:bg-yellow-500 ",
+      lime: " text-lime-800 dark:text-lime-100 bg-lime-100 dark:bg-lime-500 ",
+      teal: " text-teal-800 dark:text-teal-100 bg-teal-100 dark:bg-teal-500 ",
+      emerald:
+        " text-emerald-800 dark:text-emerald-100 bg-emerald-100 dark:bg-emerald-500 ",
+      cyan: " text-cyan-800 dark:text-cyan-100 bg-cyan-100 dark:bg-cyan-500 ",
+      sky: " text-sky-800 dark:text-sky-100 bg-sky-100 dark:bg-sky-500 ",
+      indigo:
+        "text-violet-800 dark:text-violet-100 bg-violet-100 dark:bg-violet-500",
+      violet:
+        " text-violet-800 dark:text-violet-100 bg-violet-100 dark:bg-violet-500 ",
+      purple:
+        " text-purple-800 dark:text-purple-100 bg-purple-100 dark:bg-purple-500 ",
+      fuchsia:
+        " text-fuchsia-800 dark:text-fuchsia-100 bg-fuchsia-100 dark:bg-fuchsia-500 ",
+      pink: " text-pink-800 dark:text-pink-100 bg-pink-100 dark:bg-pink-500 ",
+      rose: " text-rose-800 dark:text-rose-100 bg-rose-100 dark:bg-rose-600 ",
+    };
+
+    const _tooltipClass =
+      " absolute bottom-10 left-0 inline-block z-10 px-3 py-2 text-xs font-medium rounded-lg shadow-sm box-border min-w-max opacity-0 invisible translate-y-1/2 transition-all duration-300 peer-hover:opacity-100 peer-hover:translate-y-0 peer-hover:visible " +
+      _tooltipColorVariants[_colorScheme] +
+      tooltipClass;
+
+    const tooltipContent =
+      rest["aria-label"] === undefined ? "" : rest["aria-label"];
+    return (
+      <div
+        aria-hidden
+        role="tooltip"
+        className={_tooltipClass}
+      >
+        {tooltipContent}
+      </div>
+    );
+  }
 
   const _sizeStyleVariants = {
     xs: " text-xs scale-75 max-w-[2rem] ",
@@ -315,7 +359,7 @@ export default function CustomButton({
         {...rest}
         className={classList}
       ></button>
-      {rest["aria-label"] === undefined ? <></> : tooltip}
+      {rest["aria-label"] === undefined ? <></> : createTooltip()}
     </div>
   );
 }
