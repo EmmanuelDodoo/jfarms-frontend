@@ -34,7 +34,6 @@ type CustomButtonProps = ButtonProps & {
   //Loading states
   // disabled states
   //gradient?
-  //tooltip color
 };
 
 /** Given a rounded value, return the appropriate tailwind class name */
@@ -97,7 +96,7 @@ export default function CustomButton({
       cyan: " text-cyan-800 dark:text-cyan-100 bg-cyan-100 dark:bg-cyan-500 ",
       sky: " text-sky-800 dark:text-sky-100 bg-sky-100 dark:bg-sky-500 ",
       indigo:
-        "text-violet-800 dark:text-violet-100 bg-violet-100 dark:bg-violet-500",
+        "text-indigo-800 dark:text-indigo-100 bg-indigo-100 dark:bg-indigo-500 ",
       violet:
         " text-violet-800 dark:text-violet-100 bg-violet-100 dark:bg-violet-500 ",
       purple:
@@ -350,7 +349,8 @@ export default function CustomButton({
     baseClassList +
     _sizeStyleVariants[_size] +
     handleRounded(_rounded) +
-    handleVariant(_variant) +
+    handleVariant(_variant)+
+    ( rest.disabled? " opacity-50 cursor-not-allowed " : "") + 
     rest.className;
 
   return (
