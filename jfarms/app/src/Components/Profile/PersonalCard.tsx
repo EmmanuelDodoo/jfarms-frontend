@@ -3,8 +3,8 @@ import CustomButton from "../Custom/Form/CustomButton";
 
 export default function PersonalCard() {
   const divClassNames = " flex gap-2 items-center";
-  const subClassNames = " font-semibold text-slate-500 ";
-  const detailClassNames = " font-semibold text-slate-800 ";
+  const subClassNames = " font-semibold text-slate-500 dark:text-slate-300";
+  const detailClassNames = " font-semibold text-slate-800 dark:text-slate-200";
   const copySVG = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,8 +36,8 @@ export default function PersonalCard() {
   }
 
   return (
-    <div className="py-4 px-3 gap-4 rounded-md shadow-md h-fit flex flex-col bg-white">
-      <h3 className="text-slate-700 font-bold">Personal Details</h3>
+    <div className="py-4 px-3 gap-4 rounded-md shadow-md h-fit flex flex-col bg-white dark:bg-slate-600 text-slate-800 dark:text-slate-200">
+      <h3 className="text-slate-700 font-bold dark:text-slate-200">Personal Details</h3>
       <div className={divClassNames}>
         <span className={subClassNames}>Full name: </span>
         <span className={detailClassNames}>Kofi Ananse Manu</span>

@@ -51,7 +51,7 @@ const formatList = (list: string[]) => {
     <ul className=" list-disc w-fit ml-8">
       {list.map((skill) => (
         <li
-          className=" font-semibold text-slate-700"
+          className=" font-semibold"
           key={"EmploymentCard skill- " + skill}
         >
           {skill}
@@ -88,24 +88,28 @@ export default function EmploymentCard(props: Props) {
   }
 
   return (
-    <div className=" rounded-md py-4 px-3 shadow-md flex flex-col gap-2 bg-white">
-      <div className=" flex flex-col gap-2">
-        <h3 className="text-slate-700 font-bold">Employement Details</h3>
+    <div className=" rounded-md py-4 px-3 shadow-md flex flex-col gap-2 bg-white dark:bg-slate-600 text-slate-800 dark:text-slate-200">
+      <div className=" flex flex-col gap-2 ">
+        <h3 className="text-slate-700 font-bold dark:text-slate-200">
+          Employement Details
+        </h3>
         <div className=" inline-flex gap-2">
-          <span className=" font-semibold text-slate-500">
+          <span className=" font-semibold text-slate-500 dark:text-slate-300">
             Employement Status:{" "}
           </span>
-          <span className="font-semibold text-slate-800">Active</span>
+          <span className="font-semibold">Active</span>
         </div>
         <div className=" inline-flex gap-2">
-          <span className=" font-semibold text-slate-500">
+          <span className=" font-semibold text-slate-500 dark:text-slate-300">
             Employment start date:{" "}
           </span>
-          <span className="font-semibold text-slate-800">YYYY/MM/DD</span>
+          <span className="font-semibold">YYYY/MM/DD</span>
         </div>
         <div className=" inline-flex gap-2 items-center">
-          <span className=" font-semibold text-slate-500">Employee ID: </span>
-          <span className="font-semibold text-slate-800">
+          <span className=" font-semibold text-slate-500 dark:text-slate-300">
+            Employee ID:{" "}
+          </span>
+          <span className="font-semibold">
             {visibleID ? "420-69-0001" : "XXX-XX-XXXX"}
           </span>
           <CustomButton
@@ -119,18 +123,22 @@ export default function EmploymentCard(props: Props) {
           </CustomButton>
         </div>
         <div className=" inline-flex gap-2">
-          <span className=" font-semibold text-slate-500">
+          <span className=" font-semibold text-slate-500 dark:text-slate-300">
             Onboarding Status:{" "}
           </span>
-          <span className="font-semibold text-slate-800">Completed</span>
+          <span className="font-semibold">Completed</span>
         </div>
       </div>
       <HorDivider />
       <div className=" flex flex-col gap-2">
-        <h3 className="text-slate-700 font-bold">Work Details</h3>
+        <h3 className="text-slate-700 font-bold dark:text-slate-200">
+          Work Details
+        </h3>
         <div>
           <div className=" inline-flex items-center">
-            <span className=" font-semibold text-slate-500">Work history</span>
+            <span className=" font-semibold text-slate-500 dark:text-slate-300">
+              Work history
+            </span>
             <CustomButton
               size="sm"
               variant="soft"
@@ -145,7 +153,7 @@ export default function EmploymentCard(props: Props) {
         </div>
         <div>
           <div className="inline-flex items-center ">
-            <span className=" font-semibold text-slate-500">
+            <span className=" font-semibold text-slate-500 dark:text-slate-300">
               Projects Worked on
             </span>
             <CustomButton
@@ -162,8 +170,8 @@ export default function EmploymentCard(props: Props) {
         </div>
         <div>
           <div className=" inline-flex items-center">
-            <span className=" font-semibold text-slate-500">
-              Skils and Expertise
+            <span className=" font-semibold text-slate-500 dark:text-slate-300">
+              Skills and Expertise
             </span>
             <CustomButton
               size="sm"

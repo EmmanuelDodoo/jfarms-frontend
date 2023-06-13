@@ -201,7 +201,7 @@ export default function AltHeader() {
   }, []);
 
   return (
-    <div className="bg-slate-100 dark:bg-slate-800 dark:text-slate-200 rounded-md shadow-lg my-2 p-3 w-80 xs:w-11/12 flex lg:flex-row xs:flex-col justify-between">
+    <div className="bg-slate-100 dark:bg-slate-600 dark:text-slate-200 rounded-md shadow-lg my-2 p-3 w-80 xs:w-11/12 flex lg:flex-row xs:flex-col justify-between">
       <div className="flex flex-col gap-8 outline outline-green-700 xs:m-0 lg:m-2 p-2 lg:w-2/5">
         {AvatarAndName()}
         {AboutSection(
