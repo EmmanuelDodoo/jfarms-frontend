@@ -35,8 +35,6 @@ type CustomButtonProps = ButtonProps & {
     | "fuchsia"
     | "pink"
     | "rose";
-  //shadows
-  //gradient?
 };
 
 /** Given a rounded value, return the appropriate tailwind class name */

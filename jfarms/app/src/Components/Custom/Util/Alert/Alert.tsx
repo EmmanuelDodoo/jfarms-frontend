@@ -117,7 +117,7 @@ function defaultIcon(status: string) {
 
 /** Create a custom alert component.
  * To include a title for the alert, use an AlertTitle component.
- * Svg icons with no height or width property set work beset for custom icon options.
+ * Svg icons with no height or width property set work best for custom icon options.
  * If an onClose callback is provided and no actionIcon prop is set, a close icon is displayed.
  * Further customisation can be achieved using any native div props
  *
