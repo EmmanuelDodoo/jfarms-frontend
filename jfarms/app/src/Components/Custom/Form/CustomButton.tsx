@@ -399,7 +399,11 @@ export default function CustomButton({
     <div className="relative px-0">
       <button
         {...rest}
-        className={classList}
+        className={
+          rest.children === undefined
+            ? classList + " aspect-square " //for fully circular button
+            : classList
+        }
       >
         {_startIcon}
         {rest.children}
