@@ -14,6 +14,7 @@ export default function CircleAvatar({ src, alt }: props) {
         alt={alt}
         fill={true}
         sizes="112px"
+        loading="lazy"
       />
     </div>
   );
