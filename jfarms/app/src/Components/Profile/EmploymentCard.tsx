@@ -113,6 +113,7 @@ export default function EmploymentCard(props: Props) {
             variant="soft"
             onClick={toggleID}
             aria-label={visibleID ? "hide" : "unhide"}
+            colorScheme="blue"
           >
             {visibleID ? visibilityIDOff : visibilityIDOn}
           </CustomButton>
@@ -132,7 +133,8 @@ export default function EmploymentCard(props: Props) {
             <span className=" font-semibold text-slate-500">Work history</span>
             <CustomButton
               size="sm"
-              variant="ghost"
+              variant="soft"
+              colorScheme="slate"
               onClick={toggleWork}
               aria-label={visibleWork ? "collapse" : "expand"}
             >
@@ -148,7 +150,8 @@ export default function EmploymentCard(props: Props) {
             </span>
             <CustomButton
               size="sm"
-              variant="ghost"
+              variant="soft"
+              colorScheme="slate"
               onClick={toggleProjects}
               aria-label={visibleProjects ? "collapse" : "expand"}
             >
@@ -164,7 +167,8 @@ export default function EmploymentCard(props: Props) {
             </span>
             <CustomButton
               size="sm"
-              variant="ghost"
+              variant="soft"
+              colorScheme="slate"
               onClick={toggleSkills}
               aria-label={visibleSkills ? "collapse" : "expand"}
             >

@@ -65,6 +65,7 @@ function AboutSection(
           variant="ghost"
           onClick={showMore}
           className=" font-semibold "
+          colorScheme="slate"
         >
           {butttonText}
         </CustomButton>

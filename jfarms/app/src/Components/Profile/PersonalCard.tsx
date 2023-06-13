@@ -57,6 +57,7 @@ export default function PersonalCard() {
         <CustomButton
           size="sm"
           variant="soft"
+          colorScheme="blue"
           onClick={() => copyElementContents("email", setEmailCopyFlag)}
           id="emailCopyButton"
           aria-label="Copy email"
@@ -75,6 +76,7 @@ export default function PersonalCard() {
         <CustomButton
           size="sm"
           variant="soft"
+          colorScheme="blue"
           onClick={() => copyElementContents("phone-number", setNumberCopyFlag)}
           id="numberCopyButton"
           aria-label="Copy phone number"
