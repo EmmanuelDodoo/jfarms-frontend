@@ -33,4 +33,5 @@ function altApp() {
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals(console.log);
 
-export default altApp;
+export default myApp;
+// export default altApp;

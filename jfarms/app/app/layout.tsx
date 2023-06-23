@@ -13,15 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="icon"
-          href="./favicon.ico"
-          sizes="any"
-        />
-      </head>
-      <Navbar />
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
