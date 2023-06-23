@@ -1,8 +1,7 @@
+"use client";
 import CircleAvatar from "./CircleAvatar";
 import CustomButton from "../Custom/Form/CustomButton";
-import linkedInIconSVG from "../../../public/linkedin-outline.svg";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Image from "next/image";
 
 /** Creates the Name and position sectionn */
 function NameandPosition(name?: string, position?: string) {

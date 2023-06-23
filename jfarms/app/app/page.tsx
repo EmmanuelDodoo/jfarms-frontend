@@ -1,19 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.module.css";
-import App from "../app/App";
 import reportWebVitals from "./reportWebVitals";
 import ProfileHeader from "@/Components/Profile/Header";
 import AltHeader from "@/Components/Profile/AltHeader";
 import Details from "@/Components/Profile/Details";
 import AltDetails from "@/Components/Profile/AltDetails";
+import "../src/styles/globals.css"
 
 // const rt = document.getElementById("root");
 
 function myApp() {
   return (
     <div id="myApp">
-      <App />
+      No root app yet
     </div>
   );
 }
@@ -32,7 +31,6 @@ function altApp() {
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(console.log);
+// reportWebVitals(console.log);
 
-// export default myApp;
 export default altApp;
