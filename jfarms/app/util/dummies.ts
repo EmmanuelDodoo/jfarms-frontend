@@ -1,3 +1,5 @@
+import { User } from "./types";
+
 const dummyUser: User = {
     username: "Kofi Manu",
     uuid: "1234asdf",

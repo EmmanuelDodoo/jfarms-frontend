@@ -5,16 +5,11 @@ import ProfileHeader from "@/Components/Profile/Header";
 import AltHeader from "@/Components/Profile/AltHeader";
 import Details from "@/Components/Profile/Details";
 import AltDetails from "@/Components/Profile/AltDetails";
-import "../src/styles/globals.css"
 
 // const rt = document.getElementById("root");
 
 function myApp() {
-  return (
-    <div id="myApp">
-      No root app yet
-    </div>
-  );
+  return <div id="myApp">No root app yet</div>;
 }
 
 function altApp() {

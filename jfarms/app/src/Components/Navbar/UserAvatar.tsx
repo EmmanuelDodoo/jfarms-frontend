@@ -11,21 +11,6 @@ type NavData = {
   path: string;
 };
 
-const navigations: NavData[] = [
-  {
-    name: "Dashboard",
-    path: "/",
-  },
-  {
-    name: "Settings",
-    path: "/",
-  },
-  {
-    name: "Earnings",
-    path: "/",
-  },
-];
-
 function wrapNavData({ name, path }: NavData) {
   return (
     <li key={name + "-profile-link"}>
@@ -57,6 +42,21 @@ function Login() {
 export default function UserAvatar() {
   const [expanded, setExpanded] = useState(false);
   const user = useContext(UserContext);
+
+  const navigations: NavData[] = [
+    {
+      name: "Dashboard",
+      path: `/dashboard/${user?.uuid}`,
+    },
+    {
+      name: "Settings",
+      path: `/settings/${user?.uuid}`,
+    },
+    {
+      name: "Earnings",
+      path: `/settings/${user?.uuid}`,
+    },
+  ];
 
   function handleCollapseOnOutsideClick(event: MouseEvent) {
     const dropdownMenu = document.getElementById("dropdown-parent");

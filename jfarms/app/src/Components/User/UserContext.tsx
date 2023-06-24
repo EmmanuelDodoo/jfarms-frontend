@@ -2,6 +2,7 @@
 
 import { createContext } from "react";
 import { dummyUser, defaultUser } from "r/util/dummies";
+import { User } from "r/util/types";
 
 export const UserContext = createContext<User | null>(null);
 
