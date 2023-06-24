@@ -6,7 +6,7 @@ import NavOptions from "./NavOptions";
 
 const Navbar = () => {
   return (
-    <nav className="bg-slate-100 border-gray-200 dark:bg-gray-900 font-medium text-gray-900 dark:text-white ">
+    <nav className="bg-slate-100 border-gray-200 dark:bg-gray-900 font-medium text-gray-900 dark:text-white shadow-md">
       <div className=" w-screen flex flex-wrap items-center justify-evenly mx-auto p-4">
         <header className="items-center">
           <a
@@ -26,13 +26,14 @@ const Navbar = () => {
             </span>
           </a>
         </header>
-        <div className="flex gap-0 lg:gap-16">
-          <div className=" order-2 lg:order-1"><NavOptions /></div>
+        <div className="flex gap-0 lg:gap-16 items-center">
+          <div className=" order-2 lg:order-1">
+            <NavOptions />
+          </div>
           <div className="flex items-center order-1 lg:order-2">
             <UserProvider>
               <UserAvatar />
             </UserProvider>
-            
           </div>
         </div>
       </div>

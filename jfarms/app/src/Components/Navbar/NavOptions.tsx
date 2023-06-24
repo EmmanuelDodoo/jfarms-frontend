@@ -1,6 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
+
+type NavData = {
+  name: string;
+  path: string;
+};
+
+const navigations: NavData[] = [
+  {
+    name: "Home",
+    path: "/",
+  },
+  {
+    name: "About",
+    path: "/about",
+  },
+  {
+    name: "Services",
+    path: "/services",
+  },
+  {
+    name: "Contact",
+    path: "/contact",
+  },
+];
 
 const closedSVG = (
   <svg
@@ -34,8 +60,30 @@ const hamburgerSVG = (
   </svg>
 );
 
+function wrapNavData({ name, path }: NavData, isCurrentPage: boolean) {
+  const currentPageTextStyles =
+    " text-white bg-blue-700 lg:bg-transparent lg:text-blue-700 lg:p-0 lg:dark:text-blue-500 ";
+  const notCurrentPageTextStyles =
+    " text-gray-900 hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ";
+  const temp = isCurrentPage ? currentPageTextStyles : notCurrentPageTextStyles;
+
+  return (
+    <li key={name + "-nav-link"}>
+      <Link
+        href={path}
+        className={"block py-2 pl-3 pr-4 rounded " + temp}
+        aria-current={isCurrentPage ? "page" : undefined}
+      >
+        {name}
+      </Link>
+    </li>
+  );
+}
+
 export default function NavOptions() {
   const [hamburgerExpanded, setHamburgerExpanded] = useState(false);
+
+  const currentPage = usePathname();
 
   function mobileMenuToggle() {
     const menu = document.getElementById("nav-item-list");
@@ -84,47 +132,9 @@ export default function NavOptions() {
         id="nav-item-list"
         className="hidden absolute lg:relative top-10 lg:top-auto -right-5 md:-right-12 lg:right-auto w-72 md:w-96 lg:w-auto  z-50 lg:z-auto lg:flex flex-col font-medium p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0  dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700"
       >
-        <li>
-          <a
-            href="#"
-            className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0 lg:dark:text-blue-500"
-            aria-current="page"
-          >
-            Home
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-          >
-            About
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-          >
-            Services
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-          >
-            Pricing
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-          >
-            Contact
-          </a>
-        </li>
+        {...navigations.map((nav) =>
+          wrapNavData(nav, currentPage === nav.path)
+        )}
       </ul>
     </div>
   );

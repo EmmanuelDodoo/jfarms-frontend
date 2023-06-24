@@ -2,7 +2,7 @@ const dummyUser: User = {
     username: "Kofi Manu",
     uuid: "1234asdf",
     email: "km57@jfarms.agr",
-    profileImage: new URL("https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFic3RyYWN0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60")
+    profileImage: new URL("https://api.dicebear.com/6.x/initials/svg?seed=KM&backgroundType=gradientLinear&backgroundColor=3b7777,050A18")
 }
 
 const defaultUser: User = {

@@ -3,9 +3,55 @@
 import Image from "next/image";
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../User/UserContext";
+import Link from "next/link";
+import CustomButton from "../Custom/Form/CustomButton";
+
+type NavData = {
+  name: string;
+  path: string;
+};
+
+const navigations: NavData[] = [
+  {
+    name: "Dashboard",
+    path: "/",
+  },
+  {
+    name: "Settings",
+    path: "/",
+  },
+  {
+    name: "Earnings",
+    path: "/",
+  },
+];
+
+function wrapNavData({ name, path }: NavData) {
+  return (
+    <li key={name + "-profile-link"}>
+      <Link
+        href={path}
+        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:text-gray-200 dark:hover:text-white dark:focus:text-white"
+      >
+        {name}
+      </Link>
+    </li>
+  );
+}
 
 function Login() {
-  return <h1>Login</h1>;
+  function handleClick() {
+    alert("Login Todo!");
+  }
+  return (
+    <CustomButton
+      colorScheme="green"
+      rounded
+      onClick={handleClick}
+    >
+      Login
+    </CustomButton>
+  );
 }
 
 export default function UserAvatar() {
@@ -51,34 +97,11 @@ export default function UserAvatar() {
           className="py-2"
           aria-labelledby="user-menu-button"
         >
+          {...navigations.map((nav) => wrapNavData(nav))}
           <li>
             <a
               href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-            >
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-            >
-              Settings
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-            >
-              Earnings
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:text-gray-200 dark:hover:text-white dark:focus:text-white"
             >
               Sign out
             </a>
@@ -96,7 +119,7 @@ export default function UserAvatar() {
       {/* User Profile Image */}
       <button
         type="button"
-        className=" flex mr-3 text-sm bg-gray-800 rounded-full lg:mr-0 aspect-square h-8"
+        className=" flex mr-3 text-base rounded-full lg:mr-0 h-8 items-center gap-2 px-2 py-5 "
         id="user-menu-button"
         aria-expanded={expanded}
         aria-controls="user-dropdown"
@@ -111,11 +134,12 @@ export default function UserAvatar() {
           height={36}
           loading="lazy"
         />
+        <span className="hidden lg:block not-sr-only">{user.username}</span>
       </button>
       {/* <!-- Dropdown menu --> */}
       <div
         className={
-          "z-50 absolute top-4 -left-20 lg:-left-24  my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 transition-opacity ease-in opacity-0" +
+          "z-50 absolute top-6 -left-20 lg:-left-10  my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 transition-opacity ease-in opacity-0" +
           dropDownParentOpacity
         }
         id="user-dropdown"
@@ -123,7 +147,6 @@ export default function UserAvatar() {
       >
         {expanded ? provideDropDown() : <></>}
       </div>
-      <span className="hidden lg:block not-sr-only">{user.username}</span>
     </div>
   );
 }
