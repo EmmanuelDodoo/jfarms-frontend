@@ -6,8 +6,8 @@ import NavOptions from "./NavOptions";
 
 const Navbar = () => {
   return (
-    <nav className="bg-slate-100 border-gray-200 dark:bg-gray-900 font-medium text-gray-900 dark:text-white shadow-md">
-      <div className=" w-screen flex flex-wrap items-center justify-evenly mx-auto p-4">
+    <nav className=" shadow-md font-medium mx-0 px-0 bg-slate-100 border-gray-200 dark:bg-gray-900 text-gray-900 dark:text-white">
+      <div className=" w-full flex flex-wrap items-center justify-evenly mx-auto p-4">
         <header className="items-center">
           <a
             href="" // TODO
