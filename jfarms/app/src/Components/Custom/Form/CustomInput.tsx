@@ -51,7 +51,8 @@ function shouldTypeLabelFloat(type: string | undefined) {
 }
 
 /** Creates a Custom Input component. Invalid and required inputs are themed
- * red regardless of the colorScheme provided
+ * red regardless of the colorScheme provided. Use the `className` to directly
+ * style the input component.
  *
  * @param colorScheme The color scheme to apply to the component. Accepts any
  *                    any Tailwind CSS color name except for white tones. See
@@ -99,7 +100,7 @@ export default function CustomInput({
     const floatLabelBackground =
       _colorScheme === "undefined"
         ? " bg-gray-100 dark:bg-gray-700 "
-        : " bg-slate-50 dark:bg-slate-500 ";
+        : " bg-slate-50 dark:bg-slate-950 ";
 
     const requiredLabelClassList =
       " peer-placeholder-shown:peer-required:text-black peer-placeholder-shown:peer-required:dark:text-white peer-required:after:content-['*'] peer-required:after:ml-1 peer-required:after:text-red-500 ";
@@ -108,6 +109,9 @@ export default function CustomInput({
         htmlFor={id ? id : componentID}
         className={
           baseLabelClassList +
+          (_colorScheme === "undefined"
+            ? " text-black dark:text-white "
+            : "text-current") +
           (labelShouldFloat
             ? floatLabelClassList + floatLabelBackground
             : " order-1 ") +
