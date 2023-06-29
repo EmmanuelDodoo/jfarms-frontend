@@ -184,7 +184,7 @@ export default function CustomInput({
   const hasFloatingLabelClassList = " pb-1.5 pt-4 ";
 
   const hasNoBorderRingClassList =
-    " hover:ring-0 focus:ring-0 invalid:ring-0 focus:outline focus:outline-current invalid:focus:outline-red-500 accent-current ";
+    " hover:ring-transparent focus:ring-transparent invalid:ring-transparent hover:outline hover:outline-current invalid:hover:outline-red-500 focus:outline focus:outline-current invalid:focus:outline-red-500 accent-current ";
 
   const _colorSchemeVariantsForDiv = {
     undefined: " text-white dark:text-black ",
@@ -227,7 +227,7 @@ export default function CustomInput({
         id={id ? id : componentID}
       />
 
-      {provideLabel()}
+      {label ? provideLabel() : <></>}
     </div>
   );
 }
