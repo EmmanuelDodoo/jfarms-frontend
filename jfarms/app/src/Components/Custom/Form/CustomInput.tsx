@@ -1,7 +1,6 @@
 "use client";
 
 import { ComponentProps, useState, useEffect } from "react";
-import CustomButton from "./CustomButton";
 
 type DefaultInputProps = ComponentProps<"input">;
 
@@ -10,6 +9,7 @@ type CustomInputProps = DefaultInputProps & {
   labelClass?: string;
   floatLabel?: boolean; //requires placeholder text
   variant?: "line";
+  groupClass?: string;
   colorScheme?:
     | "red"
     | "blue"
@@ -71,6 +71,8 @@ function shouldTypeLabelFloat(type: string | undefined) {
  * @param labelClass  A list of classes to for styling the label.
  *                    Requires a label to take effect.
  *
+ * @param groupClass A list of classes for styling both the input and its label.
+ *
  * @param floatLabel Whether the label should float. Requires both the label
  *                   and placeholder fields be provided to take effect.
  *                   Not all input types can have floating labels though.
@@ -82,6 +84,7 @@ export default function CustomInput({
   floatLabel,
   colorScheme,
   variant,
+  groupClass,
   id,
   ...rest
 }: CustomInputProps) {
@@ -207,7 +210,8 @@ export default function CustomInput({
     <div
       className={
         " relative flex flex-col w-fit " +
-        _colorSchemeVariantsForDiv[_colorScheme]
+        _colorSchemeVariantsForDiv[_colorScheme] +
+        groupClass
       }
     >
       <input
