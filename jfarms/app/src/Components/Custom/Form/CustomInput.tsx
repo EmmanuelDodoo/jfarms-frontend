@@ -107,13 +107,13 @@ export default function CustomInput({
     const baseLabelClassList =
       " font-medium mb-2 text-sm peer-invalid:text-red-500 ";
     const floatLabelClassList =
-      " text-md pointer-events-none flex items-center transition-all duration-200 rounded-lg absolute top-0 peer-placeholder-shown:top-[5%] -left-[10%] peer-focus:-left-[10%] peer-placeholder-shown:left-1 w-[95%] h-2/5 peer-focus:h-2/5  peer-placeholder-shown:h-[90%] scale-75 peer-placeholder-shown:scale-100 peer-focus:scale-75 ";
+      " text-md pointer-events-none flex items-center transition-all duration-200 rounded-lg absolute w-[95%] top-[5%] left-[2.5%] h-2/5 peer-focus:h-2/5 peer-placeholder-shown:h-[90%] scale-[70%] peer-focus:scale-[70%] peer-placeholder-shown:scale-100 -translate-x-[15%] peer-focus:-translate-x-[15%] peer-placeholder-shown:-translate-x-0 ";
 
     const _floatLabelBackgroundVariants = {
       undefined:
         _colorScheme === "undefined"
           ? " bg-gray-100 dark:bg-gray-700 "
-          : " bg-slate-50 dark:bg-slate-950 ",
+          : " bg-slate-50 peer-focus:bg-transparent dark:bg-slate-950 peer-focus:dark:bg-transparent ", // The peer focus is for when the browser suggests input options to the user.
       line: " bg-transparent dark:bg-transparent ",
     };
 
