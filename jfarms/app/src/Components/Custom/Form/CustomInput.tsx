@@ -104,11 +104,7 @@ export default function CustomInput({
     const baseLabelClassList =
       " font-medium mb-2 text-sm peer-invalid:text-red-500 ";
     const floatLabelClassList =
-      " text-md pointer-events-none flex items-center transition-all rounded-lg absolute top-0 peer-placeholder-shown:top-[5%] -left-[10%] peer-focus:-left-[10%] peer-placeholder-shown:left-1 w-[95%] h-2/5 peer-focus:h-2/5  peer-placeholder-shown:h-[90%] scale-75 peer-placeholder-shown:scale-100 peer-focus:scale-75 ";
-    const floatLabelBackground =
-      _colorScheme === "undefined"
-        ? " bg-gray-100 dark:bg-gray-700 "
-        : " bg-slate-50 dark:bg-slate-950 ";
+      " text-md pointer-events-none flex items-center transition-all duration-200 rounded-lg absolute top-0 peer-placeholder-shown:top-[5%] -left-[10%] peer-focus:-left-[10%] peer-placeholder-shown:left-1 w-[95%] h-2/5 peer-focus:h-2/5  peer-placeholder-shown:h-[90%] scale-75 peer-placeholder-shown:scale-100 peer-focus:scale-75 ";
 
     const _floatLabelBackgroundVariants = {
       undefined:
