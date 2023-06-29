@@ -118,15 +118,12 @@ export default function CustomInput({
     };
 
     const requiredLabelClassList =
-      " peer-placeholder-shown:peer-required:text-black peer-placeholder-shown:peer-required:dark:text-white peer-required:after:content-['*'] peer-required:after:ml-1 peer-required:after:text-red-500 ";
+      " peer-placeholder-shown:peer-required:text-current  peer-required:after:content-['*'] peer-required:after:ml-1 peer-required:after:text-red-500 ";
     return (
       <label
         htmlFor={id ? id : componentID}
         className={
           baseLabelClassList +
-          (_colorScheme === "undefined"
-            ? " text-black dark:text-white "
-            : " text-current ") +
           (labelShouldFloat
             ? floatLabelClassList + _floatLabelBackgroundVariants[_variant]
             : " order-1 ") +
@@ -151,33 +148,33 @@ export default function CustomInput({
 
   const _colorSchemeBaseClassListVariants = {
     undefined:
-      " text-gray-900 dark:text-white invalid:text-red-700 invalid:dark:text-red-300 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:border-blue-500 hover:invalid:border-red-500 focus:border-blue-500 focus:invalid:border-red-500 ring-blue-500 invalid:ring-red-500 ",
-    blue: " text-blue-600 dark:text-blue-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-green-500 hover:invalid:border-red-500 focus:border-green-500 focus:invalid:border-red-500 ring-blue-500 invalid:ring-red-500 ",
-    red: " text-red-600 dark:text-red-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-purple-500 hover:invalid:border-red-500 focus:border-purple-500 focus:invalid:border-red-500 ring-red-500 invalid:ring-red-500 ",
+      " text-gray-900 dark:text-white invalid:text-red-700 invalid:dark:text-red-300 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:border-blue-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-blue-500 focus:border-blue-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-blue-500 ring-blue-500 invalid:ring-red-500 placeholder-shown:invalid:ring-blue-500 ",
+    blue: " text-blue-600 dark:text-blue-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-green-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-green-500 focus:border-green-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-green-500 ring-blue-500 invalid:ring-red-500 placeholder-shown:invalid:ring-blue-500 ",
+    red: " text-red-600 dark:text-red-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-purple-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-purple-500 focus:border-purple-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-purple-500 ring-red-500 invalid:ring-red-500 placeholder-shown:invalid:ring-red-500 ",
     green:
-      " text-green-700 dark:text-green-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-amber-600 hover:invalid:border-red-500 focus:border-amber-600 focus:invalid:border-red-500 ring-green-500 invalid:ring-red-500 ",
+      " text-green-700 dark:text-green-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-amber-600 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-amber-500 focus:border-amber-600 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-amber-500 ring-green-500 invalid:ring-red-500 placeholder-shown:invalid:ring-green-500 ",
     orange:
-      " text-orange-700 dark:text-orange-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-rose-600 hover:invalid:border-red-500 focus:border-rose-600 focus:invalid:border-red-500 ring-orange-500 invalid:ring-red-500 ",
+      " text-orange-700 dark:text-orange-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-rose-600 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-rose-500 focus:border-rose-600 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-rose-500 ring-orange-500 invalid:ring-red-500 placeholder-shown:invalid:ring-orange-500 ",
     yellow:
-      " text-yellow-700 dark:text-yellow-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-pink-500 hover:invalid:border-red-500 focus:border-pink-500 focus:invalid:border-red-500 ring-yellow-500 invalid:ring-red-500 ",
+      " text-yellow-700 dark:text-yellow-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-pink-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-pink-500 focus:border-pink-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-pink-500 ring-yellow-500 invalid:ring-red-500 placeholder-shown:invalid:ring-yellow-500 ",
     amber:
-      " text-amber-700 dark:text-amber-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-rose-500 hover:invalid:border-red-500 focus:border-rose-500 focus:invalid:border-red-500 ring-amber-500 invalid:ring-red-500 ",
-    lime: " text-lime-700 dark:text-lime-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-yellow-500 hover:invalid:border-red-500 focus:border-yellow-500 focus:invalid:border-red-500 ring-lime-500 invalid:ring-red-500 ",
+      " text-amber-700 dark:text-amber-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-rose-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-rose-500 focus:border-rose-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-rose-500 ring-amber-500 invalid:ring-red-500 placeholder-shown:invalid:ring-amber-500 ",
+    lime: " text-lime-700 dark:text-lime-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-yellow-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-yellow-500 focus:border-yellow-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-yellow-500 ring-lime-500 invalid:ring-red-500 placeholder-shown:invalid:ring-lime-500 ",
     emerald:
-      " text-emerald-700 dark:text-emerald-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-emerald-500 hover:invalid:border-red-500 focus:border-emerald-500 focus:invalid:border-red-500 ring-emerald-500 invalid:ring-red-500 ",
-    teal: " text-teal-700 dark:text-teal-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-indigo-500 hover:invalid:border-red-500 focus:border-indigo-500 focus:invalid:border-red-500 ring-teal-500 invalid:ring-red-500 ",
-    cyan: " text-cyan-700 dark:text-cyan-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-green-500 hover:invalid:border-red-500 focus:border-green-500 focus:invalid:border-red-500 ring-cyan-500 invalid:ring-red-500 ",
-    sky: " text-sky-700 dark:text-sky-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-lime-500 hover:invalid:border-red-500 focus:border-lime-500 focus:invalid:border-red-500 ring-sky-500 invalid:ring-red-500 ",
+      " text-emerald-700 dark:text-emerald-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-emerald-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-emerald-500 focus:border-emerald-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-emerald-500 ring-emerald-500 invalid:ring-red-500 placeholder-shown:invalid:ring-emerald-500 ",
+    teal: " text-teal-700 dark:text-teal-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-indigo-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-indigo-500 focus:border-indigo-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-indigo-500 ring-teal-500 invalid:ring-red-500 placeholder-shown:invalid:ring-teal-500 ",
+    cyan: " text-cyan-700 dark:text-cyan-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-green-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-green-500 focus:border-green-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-green-500 ring-cyan-500 invalid:ring-red-500 placeholder-shown:invalid:ring-cyan-500 ",
+    sky: " text-sky-700 dark:text-sky-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-lime-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-lime-500 focus:border-lime-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-lime-500 ring-sky-500 invalid:ring-red-500 placeholder-shown:invalid:ring-sky-500 ",
     indigo:
-      " text-indigo-700 dark:text-indigo-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-orange-500 hover:invalid:border-red-500 focus:border-orange-500 focus:invalid:border-red-500 ring-indigo-500 invalid:ring-red-500 ",
+      " text-indigo-700 dark:text-indigo-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-orange-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-orange-500 focus:border-orange-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-orange-500 ring-indigo-500 invalid:ring-red-500 placeholder-shown:invalid:ring-indigo-500 ",
     purple:
-      " text-purple-700 dark:text-purple-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-purple-500 hover:invalid:border-red-500 focus:border-purple-500 focus:invalid:border-red-500 ring-purple-500 invalid:ring-red-500 ",
+      " text-purple-700 dark:text-purple-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-purple-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-purple-500 focus:border-purple-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-purple-500 ring-purple-500 invalid:ring-red-500 placeholder-shown:invalid:ring-purple-500 ",
     violet:
-      " text-violet-700 dark:text-violet-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-red-500 hover:invalid:border-red-500 focus:border-red-500 focus:invalid:border-red-500 ring-violet-500 invalid:ring-red-500 ",
+      " text-violet-700 dark:text-violet-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-red-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-red-500 focus:border-red-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-red-500 ring-violet-500 invalid:ring-red-500 placeholder-shown:invalid:ring-violet-500 ",
     fuchsia:
-      " text-fuchsia-700 dark:text-fuchsia-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-amber-500 hover:invalid:border-red-500 focus:border-amber-500 focus:invalid:border-red-500 ring-fuchsia-500 invalid:ring-red-500 ",
-    pink: " text-pink-700 dark:text-pink-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-blue-500 hover:invalid:border-red-500 focus:border-blue-500 focus:invalid:border-red-500 ring-pink-500 invalid:ring-red-500 ",
-    rose: " text-rose-700 dark:text-rose-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-pink-500 hover:invalid:border-red-500 focus:border-pink-500 focus:invalid:border-red-500 ring-rose-500 invalid:ring-red-500 ",
+      " text-fuchsia-700 dark:text-fuchsia-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-amber-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-amber-500 focus:border-amber-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-amber-500 ring-fuchsia-500 invalid:ring-red-500 placeholder-shown:invalid:ring-fuchsia-500 ",
+    pink: " text-pink-700 dark:text-pink-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-blue-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-blue-500 focus:border-blue-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-blue-500 ring-pink-500 invalid:ring-red-500 placeholder-shown:invalid:ring-pink-500 ",
+    rose: " text-rose-700 dark:text-rose-300 invalid:text-red-700 invalid:dark:text-red-300 bg-slate-50 dark:bg-gray-950 border-gray-300 dark:border-gray-600 hover:border-pink-500 hover:invalid:border-red-500 hover:placeholder-shown:invalid:border-pink-500 focus:border-pink-500 focus:invalid:border-red-500 focus:placeholder-shown:invalid:border-pink-500 ring-rose-500 invalid:ring-red-500 placeholder-shown:invalid:ring-rose-500 ",
   };
 
   const baseClassList = " w-fit p-1.5 text-sm peer focus:outline-none ";
@@ -187,8 +184,8 @@ export default function CustomInput({
     " hover:ring-transparent focus:ring-transparent invalid:ring-transparent hover:outline hover:outline-current invalid:hover:outline-red-500 focus:outline focus:outline-current invalid:focus:outline-red-500 accent-current ";
 
   const _colorSchemeVariantsForDiv = {
-    undefined: " text-white dark:text-black ",
-    red: " text-white dark:text-black ",
+    undefined: " text-black dark:text-white ",
+    red: " text-black dark:text-white ",
     blue: " text-blue-600 dark:text-blue-300 ",
     green: " text-green-700 dark:text-green-300 ",
     orange: " text-orange-700 dark:text-orange-300 ",
