@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Navbar from "@/Components/Navbar/Navbar";
 import "./globals.css";
+import BackNavigation from "@/Components/Custom/Util/BackNavigation";
 
 export const metadata: Metadata = {
   title: "Jfarms Project",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="m-0 p-0 h-screen bg-white dark:bg-black">
         <Navbar />
+        <BackNavigation />
         {children}
       </body>
     </html>
