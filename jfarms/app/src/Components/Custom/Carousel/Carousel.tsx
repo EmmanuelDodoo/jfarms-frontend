@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import "./styles.css";
 
 type props = {
@@ -66,39 +66,38 @@ export default function Carousel({
   imageLoading,
   imageURLs,
 }: props) {
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  //   const imageURLs: string[] = [
-  //     "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-  //     "https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2129&q=80",
-  //     "https://images.unsplash.com/photo-1511044568932-338cba0ad803?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-  //     "https://images.unsplash.com/photo-1491485880348-85d48a9e5312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-  //   ];
+  const indexRef = useRef(0);
+
+  /// Does the toggling of required classes for the slide animation
+  function slideAnimator(slides: HTMLCollection | undefined) {
+    const currentIndex = indexRef.current;
+    const nextIndex = (currentIndex + 1) % (slides?.length ? slides.length : 0);
+    slides?.item(currentIndex)?.toggleAttribute("aria-hidden", false);
+    slides?.item(currentIndex)?.classList.remove("flow-in");
+
+    setTimeout(() => {
+      slides?.item(currentIndex)?.classList.add("flow-out");
+      slides?.item(nextIndex)?.classList.add("flow-in");
+    }, 2000);
+
+    setTimeout(() => {
+      slides?.item(currentIndex)?.classList.remove("flow-out");
+      slides?.item(currentIndex)?.toggleAttribute("aria-hidden", true);
+      indexRef.current = nextIndex;
+    }, 5000);
+  }
 
   useEffect(() => {
     const track = document.querySelector(".carousel-track");
     const slides = track?.children;
 
-    function temp(slides: HTMLCollection | undefined) {
-      const nextIndex =
-        (currentIndex + 1) % (slides?.length ? slides.length : 0);
-      slides?.item(currentIndex)?.toggleAttribute("aria-hidden", false);
+    slideAnimator(slides)
 
-      setTimeout(() => {
-        slides?.item(currentIndex)?.classList.add("flow-out");
-        slides?.item(nextIndex)?.classList.add("flow-in");
-      }, 2000);
+    const interval = setInterval(() => slideAnimator(slides), 8000);
 
-      setTimeout(() => {
-        slides?.item(currentIndex)?.classList.remove("flow-out");
-        slides?.item(nextIndex)?.classList.remove("flow-in");
-        slides?.item(currentIndex)?.toggleAttribute("aria-hidden", true);
-        setCurrentIndex(nextIndex);
-      }, 5000);
-    }
-
-    temp(slides);
-  }, [currentIndex]);
+    return () => clearInterval(interval);
+  });
 
   return (
     <div className="relative w-full h-full overflow-hidden carousel-track">
