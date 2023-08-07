@@ -6,7 +6,7 @@ import NavOptions from "./NavOptions";
 
 const Navbar = () => {
   return (
-    <nav className=" shadow-md font-medium mx-0 px-0 bg-slate-100 border-gray-200 dark:bg-gray-900 text-gray-900 dark:text-white">
+    <nav className=" shadow-md font-medium mx-0 px-0 border-gray-200 bg-white/10 dark:bg-black/20 backdrop-blur-sm text-gray-900 dark:text-white">
       <div className=" w-full flex flex-wrap items-center justify-evenly mx-auto p-4">
         <header className="items-center">
           <a

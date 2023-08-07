@@ -62,9 +62,9 @@ const hamburgerSVG = (
 
 function wrapNavData({ name, path }: NavData, isCurrentPage: boolean) {
   const currentPageTextStyles =
-    " text-white bg-blue-700 lg:bg-transparent lg:text-blue-700 lg:p-0 lg:dark:text-blue-500 ";
+    " decoration-2 lg:underline underline-offset-4 text-white bg-green-700 lg:bg-transparent lg:text-green-500 lg:p-0 lg:dark:text-green-500 ";
   const notCurrentPageTextStyles =
-    " text-gray-900 hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ";
+    " text-gray-900 hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-green-500 lg:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ";
   const temp = isCurrentPage ? currentPageTextStyles : notCurrentPageTextStyles;
 
   return (
@@ -130,7 +130,7 @@ export default function NavOptions() {
       </button>
       <ul
         id="nav-item-list"
-        className="hidden absolute lg:relative top-10 lg:top-auto -right-5 md:-right-12 lg:right-auto w-72 md:w-96 lg:w-auto  z-50 lg:z-auto lg:flex flex-col font-medium p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0  dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700"
+        className="hidden absolute lg:relative top-10 lg:top-auto -right-5 md:-right-12 lg:right-auto w-72 md:w-96 lg:w-auto z-50 lg:z-auto lg:flex flex-col font-semibold p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0 bg-white/50 dark:bg-black/75 lg:bg-transparent backdrop-blur-[inherit] dark:border-gray-700"
       >
         {...navigations.map((nav) =>
           wrapNavData(nav, currentPage === nav.path)
