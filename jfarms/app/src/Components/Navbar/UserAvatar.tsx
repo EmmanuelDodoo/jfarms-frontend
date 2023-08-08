@@ -33,6 +33,7 @@ function Login() {
       colorScheme="green"
       rounded
       onClick={handleClick}
+      className=" pt-0.5 "
     >
       Login
     </CustomButton>
@@ -86,7 +87,7 @@ export default function UserAvatar() {
     return (
       <div id="dropdown-menu">
         <div className="px-4 py-3">
-          <span className="block text-sm text-gray-900 dark:text-white">
+          <span className="block text-sm font-semibold text-gray-900 dark:text-white">
             {user?.username}
           </span>
           <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
@@ -134,7 +135,7 @@ export default function UserAvatar() {
           height={36}
           loading="lazy"
         />
-        <span className="hidden lg:block not-sr-only">{user.username}</span>
+        <span className="hidden font-semibold lg:block not-sr-only">{user.username}</span>
       </button>
       {/* <!-- Dropdown menu --> */}
       <div
