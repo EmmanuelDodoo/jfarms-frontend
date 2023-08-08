@@ -15,10 +15,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="m-0 p-0 h-screen bg-white dark:bg-black">
+      <body className="m-0 p-0 h-screen bg-white dark:bg-black text-black dark:text-slate-200 overflow-x-hidden">
         <Navbar />
         <BackNavigation />
         {children}
+        <footer className=" text-center text-xs lg:text-sm mb-2">
+          ©2023 The JFarms Collective - All rights reserved
+        </footer>
       </body>
     </html>
   );
