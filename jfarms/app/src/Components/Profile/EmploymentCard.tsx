@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import CustomButton from "../Custom/Form/CustomButton";
 import HorDivider from "../Custom/Util/Divider";

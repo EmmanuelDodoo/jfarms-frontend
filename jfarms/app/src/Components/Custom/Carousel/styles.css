@@ -1,0 +1,24 @@
+.carousel-track [aria-hidden] {
+    transform: translateX(100%);
+    opacity: 0;
+
+}
+
+.flow-out:not([aria-hidden]) {
+
+    z-index: 1;
+
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform ease-in-out 3s,
+        opacity ease-in 2s;
+}
+
+.flow-in[aria-hidden] {
+    z-index: 2;
+
+    opacity: 1;
+    transform: translateX(0%);
+    transition: transform ease-in-out 2s,
+        opacity ease-in 0.5s;
+}
