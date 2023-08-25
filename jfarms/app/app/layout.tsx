@@ -15,11 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="m-0 p-0 h-screen bg-white dark:bg-black text-black dark:text-slate-200 overflow-x-hidden">
+      <body className="m-0 p-0 h-screen bg-green-100 dark:bg-green-950 text-black dark:text-slate-200 overflow-x-hidden">
         <Navbar />
-        <BackNavigation />
-        {children}
-        <footer className=" text-center text-xs lg:text-sm mb-2">
+        {/* <BackNavigation /> */}
+        <main>{children}</main>
+        <footer className=" text-center text-xs lg:text-sm mb-2 mt-3">
           ©2023 The JFarms Collective - All rights reserved
         </footer>
       </body>

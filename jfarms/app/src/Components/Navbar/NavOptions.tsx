@@ -62,9 +62,9 @@ const hamburgerSVG = (
 
 function wrapNavData({ name, path }: NavData, isCurrentPage: boolean) {
   const currentPageTextStyles =
-    " decoration-2 lg:underline underline-offset-4 text-white bg-green-700 lg:bg-transparent lg:text-green-500 lg:p-0 lg:dark:text-green-500 ";
+    " decoration-2 lg:underline underline-offset-4 bg-green-700 lg:bg-transparent lg:text-green-500 lg:p-0 lg:dark:text-green-500 ";
   const notCurrentPageTextStyles =
-    " text-gray-900 hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-green-500 lg:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ";
+    " hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-green-500 lg:p-0 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 ";
   const temp = isCurrentPage ? currentPageTextStyles : notCurrentPageTextStyles;
 
   return (
@@ -120,7 +120,7 @@ export default function NavOptions() {
     >
       <button
         type="button"
-        className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+        className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden dark:text-gray-400 hover:outline"
         aria-controls="mobile-menu"
         aria-expanded={hamburgerExpanded}
         onClick={mobileMenuToggle}
@@ -130,7 +130,7 @@ export default function NavOptions() {
       </button>
       <ul
         id="nav-item-list"
-        className="hidden absolute lg:relative top-10 lg:top-auto -right-5 md:-right-12 lg:right-auto w-72 md:w-96 lg:w-auto z-50 lg:z-auto lg:flex flex-col font-semibold p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0 bg-white/50 dark:bg-black/75 lg:bg-transparent backdrop-blur-[inherit] dark:border-gray-700"
+        className="hidden absolute lg:relative top-10 lg:top-auto -right-5 md:-right-12 lg:right-auto w-72 md:w-96 lg:w-auto z-[1000] lg:z-auto lg:flex flex-col font-semibold p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0 bg-white/50 dark:bg-black/75 lg:bg-transparent backdrop-blur-[inherit] dark:border-gray-700"
       >
         {...navigations.map((nav) =>
           wrapNavData(nav, currentPage === nav.path)

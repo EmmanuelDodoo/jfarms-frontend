@@ -6,7 +6,7 @@ import NavOptions from "./NavOptions";
 
 const Navbar = () => {
   return (
-    <nav className=" shadow-md font-medium mx-0 px-0 border-gray-200 bg-white/10 dark:bg-black/20 backdrop-blur-sm text-gray-900 dark:text-white">
+    <nav className=" shadow-md font-medium mx-0 px-0 border-gray-200 bg-emerald-100 dark:bg-emerald-900 backdrop-blur-sm">
       <div className=" w-full flex flex-wrap items-center justify-evenly mx-auto p-4">
         <header className="items-center">
           <a
@@ -21,7 +21,7 @@ const Navbar = () => {
               height="40"
               loading="lazy"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap ">
               JFarms
             </span>
           </a>
