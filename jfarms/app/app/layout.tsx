@@ -18,7 +18,7 @@ export default function RootLayout({
       <body className="m-0 p-0 h-screen bg-green-100 dark:bg-green-950 text-black dark:text-slate-200 overflow-x-hidden">
         <Navbar />
         {/* <BackNavigation /> */}
-        <main>{children}</main>
+        {children}
         <footer className=" text-center text-xs lg:text-sm mb-2 mt-3">
           ©2023 The JFarms Collective - All rights reserved
         </footer>
